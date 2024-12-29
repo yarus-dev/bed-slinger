@@ -16,8 +16,7 @@
 
 
 # timelapse
-; Timelapse take frame g-code Orca
-_SMILE
+
 
 # change filament
 ; change filament Orca
