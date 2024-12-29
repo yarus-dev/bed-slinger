@@ -16,9 +16,7 @@ _PRINT_OBJECT
 ; before layer change Orca
 _BEFORE_LAYER_CHANGE
 
-# before layer change
-; before layer change Orca
-_BEFORE_LAYER_CHANGE
+# layer change
 
 # timelapse
 
