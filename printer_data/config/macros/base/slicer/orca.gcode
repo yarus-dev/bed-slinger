@@ -26,7 +26,7 @@ _SMILE
 
 # change filament
 ; change filament Orca
-CHANGE_FILAMENT
+FILAMENT_CHANGE
 
 # change extrusion role
 ; change extrusion role Orca
