@@ -4,7 +4,6 @@
 
 # end ------------------------------------------------------
 ; Print end g-code Orca
-_PRINT_END
 
 # printing by object
 ; Printing by object Orca
