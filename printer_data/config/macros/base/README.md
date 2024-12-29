@@ -61,7 +61,7 @@ PAUSE
 ; Custom g-code template Orca
 ```
 
-## Filament start
+## Filament start (PLA)
 ```
 ; filament start gcode g-code Orca
 {if filament_type[initial_tool] == "PLA"}
