@@ -3,8 +3,8 @@
 # end
 
 # by object
-# before_layer_change
-# layer_change
+# before layer change
+# layer change
 # timelapse
 # change filament
 # change extrusion role
