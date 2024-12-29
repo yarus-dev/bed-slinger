@@ -5,9 +5,9 @@
 # by object
 # before_layer_change
 # layer_change
-# time_lapse
-# change_filament
-# change_extrusion role
+# timelapse
+# change filament
+# change extrusion role
 # pause
 # template
 
