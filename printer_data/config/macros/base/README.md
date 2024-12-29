@@ -1,7 +1,7 @@
 ## Output filename
 ```
 {if plate_name!=""}{plate_name}{else}{input_filename_base}{endif}_{filament_type[initial_tool]}_{timestamp}.gcode
-{if plate_name!=""}{plate_name}{else} {input_filename_base}{endif}·{filament_type[initial_tool]}·{round(total_cost)}₴·{print_time}.gcode
+{if plate_name!=""}{plate_name}{else}{input_filename_base}{endif}·{filament_type[initial_tool]}·{round(total_cost)}₴·{print_time}.gcode
 ```
 
 ## Start
