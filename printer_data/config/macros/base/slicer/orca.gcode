@@ -9,7 +9,7 @@ _PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_in
 _PRINT_END
 
 # printing by object
-; Print end g-code Orca
+; Printing by object Orca
 _PRINT_OBJECT
 
 # before layer change
