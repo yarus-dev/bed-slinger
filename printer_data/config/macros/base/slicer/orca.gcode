@@ -2,7 +2,7 @@
 
 # end
 
-# by object
+# printing by object
 
 # before layer change
 # layer change
