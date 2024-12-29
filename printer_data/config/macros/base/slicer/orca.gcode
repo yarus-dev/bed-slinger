@@ -14,7 +14,7 @@ _PRINT_OBJECT
 
 # before layer change
 ; before layer change Orca
-_BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num + 1}
+_BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1}
 
 # layer change
 
