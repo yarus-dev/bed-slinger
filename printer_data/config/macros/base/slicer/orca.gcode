@@ -10,9 +10,7 @@
 
 
 # before layer change
-; Before layer change Orca
-; layer {layer_num+1} from [total_layer_count]
-_BEFORE_LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_z]
+
 
 # layer change
 ; layer changed g-code Orca
