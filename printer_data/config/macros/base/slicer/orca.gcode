@@ -50,5 +50,5 @@ PAUSE
 {endif}
 
 # filament end gcode 
-; filament end Orca
+; Filament end Orca
 M106 P3 S0
