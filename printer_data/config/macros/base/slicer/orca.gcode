@@ -10,7 +10,7 @@ _PRINT_END
 
 # printing by object
 ; Print end g-code Orca
-_PRINT_END
+_PRINT_OBJECT
 
 # before layer change
 
