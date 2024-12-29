@@ -7,9 +7,13 @@
 # before layer change
 
 # layer change
-# timelapse
-# change filament
-# change extrusion role
-# pause
-# template
 
+# timelapse
+
+# change filament
+
+# change extrusion role
+
+# pause
+
+# template
