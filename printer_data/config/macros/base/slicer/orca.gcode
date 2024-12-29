@@ -25,8 +25,7 @@ _LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 _SMILE
 
 # change filament
-; timelapse take frame Orca
-
+; change filament Orca
 FILAMENT_CHANGE
 
 # change extrusion role
