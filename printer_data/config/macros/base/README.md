@@ -12,7 +12,7 @@ _PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_in
 ## End
 ```
 ; Print end g-code Orca
-PRINT_END
+_PRINT_END
 ; total layers count = [total_layer_count]
 ```
 ## Print by object
