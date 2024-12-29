@@ -8,7 +8,7 @@
 ; Print start g-code Orca
 ;[timestamp]
 
-PRINT_START  CHAMBER={overall_chamber_temperature > 0 ? "[overall_chamber_temperature]" : "False" }  MESH={adaptive_bed_mesh_min[0]},{adaptive_bed_mesh_min[1]},{adaptive_bed_mesh_max[0]},{adaptive_bed_mesh_max[1]} PROBES={bed_mesh_probe_count[0]},{bed_mesh_probe_count[1]}
+PRINT_START  CHAMBER={overall_chamber_temperature > 0 ? "[overall_chamber_temperature]" : "False" }  
 ```
 ## End
 ```
