@@ -17,6 +17,7 @@ _PRINT_OBJECT
 _BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 
 # layer change
+; layer change Orca
 _LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 
 # timelapse
