@@ -8,6 +8,6 @@
 # time_lapse
 # change_filament
 # change_extrusion_role
-# machine_pause
-# template_custom
+# pause
+# template
 
