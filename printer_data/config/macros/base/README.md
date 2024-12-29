@@ -37,7 +37,7 @@ _LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_z]
 ## Timelapse take frame
 ```
 ; Timelapse take frame g-code Orca
-TIMELAPSE_TAKE_PHOTO
+_SMILE
 ```
 
 ## Chnage filament
