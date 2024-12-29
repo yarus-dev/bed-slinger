@@ -50,5 +50,5 @@ PAUSE
 {endif}
 
 # filament end gcode 
-; change extrusion role Orca
+; filament end Orca
 M106 P3 S0
