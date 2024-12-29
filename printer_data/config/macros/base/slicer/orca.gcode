@@ -4,7 +4,6 @@
 
 # by object
 # before_layer_change_gcode
-
 # layer_change_gcode
 
 time_lapse_gcode
