@@ -33,8 +33,8 @@ FILAMENT_CHANGE
 _EXTRUSION_CHANGE
 
 # pause
-; change extrusion role Orca
-_EXTRUSION_CHANGE
+; Pause Orca
+PAUSE
 
 # template
 
