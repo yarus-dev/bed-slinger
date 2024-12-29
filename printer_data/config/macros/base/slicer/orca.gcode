@@ -18,6 +18,7 @@ _BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_co
 
 # layer change
 _LAYER_CHANGE
+
 # timelapse
 
 # change filament
