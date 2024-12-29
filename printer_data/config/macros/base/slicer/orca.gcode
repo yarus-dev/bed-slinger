@@ -17,7 +17,7 @@ _PRINT_OBJECT
 _BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 
 # layer change
-_LAYER_CHANGE
+_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 
 # timelapse
 
