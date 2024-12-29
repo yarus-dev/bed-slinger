@@ -37,7 +37,9 @@ _EXTRUSION_CHANGE
 PAUSE
 
 # template
-; Pause Orca
+; Orca custom g-code
+
+
 # filament start gcode
 ; Filament Start Orca
 {if filament_type[initial_tool] == 'PLA'}
