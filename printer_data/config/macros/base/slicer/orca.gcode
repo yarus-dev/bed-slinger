@@ -17,7 +17,7 @@ _PRINT_OBJECT
 _BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1}
 
 # layer change
-_
+_LAYER_CHANGE
 # timelapse
 
 # change filament
