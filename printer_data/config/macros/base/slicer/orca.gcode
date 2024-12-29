@@ -15,3 +15,5 @@ change_filament_gcode
 layer_change_gcode
 
 machine_end_gcode
+
+machine_pause_gcode
