@@ -1,7 +1,7 @@
 # start ------------------------------------------------------
 ; Print start g-code Orca
 ;[timestamp]
-_PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_initial_layer_single] MATERIAL="{filament_type[initial_tool]}" PLATE="{curr_bed_type}" LAYERS=[total_layer_count] MESH={adaptive_bed_mesh_min[0]}x{adaptive_bed_mesh_min[1]},{adaptive_bed_mesh_max[0]},{adaptive_bed_mesh_max[1]} PROBES={bed_mesh_probe_count[0]},{bed_mesh_probe_count[1]}
+_PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_initial_layer_single] MATERIAL="{filament_type[initial_tool]}" PLATE="{curr_bed_type}" LAYERS=[total_layer_count] MESH={adaptive_bed_mesh_min[0]}x{adaptive_bed_mesh_min[1]}x{adaptive_bed_mesh_max[0]}x{adaptive_bed_mesh_max[1]} PROBES={bed_mesh_probe_count[0]},{bed_mesh_probe_count[1]}
 
 
 # end ------------------------------------------------------
