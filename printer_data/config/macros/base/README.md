@@ -68,10 +68,6 @@ PAUSE
 {elsif (bed_temperature[current_extruder] >60)||(bed_temperature_initial_layer[current_extruder] > 60)}
     M106 P3 S180
 {endif}
-
-{if support_air_filtration && activate_air_filtration[current_extruder]}
-    M106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]} 
-{endif}
 ```
 
 ## Filament end
