@@ -71,7 +71,7 @@ PAUSE
 ; filament start gcode g-code Orca
 {if (bed_temperature[current_extruder] > 45) ||(bed_temperature_initial_layer[current_extruder] > 45 )}
     M106 P3 S255
-{elsif (bed_temperature[current_extruder] > 35)||(bed_temperature_initial_layer[current_extruder] > 60)}
+{elsif (bed_temperature[current_extruder] > 35)||(bed_temperature_initial_layer[current_extruder] > 35 )}
     M106 P3 S180
 {endif}
 ```
