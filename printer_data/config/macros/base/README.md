@@ -77,5 +77,4 @@ PAUSE
 ## Filament end
 ```
 ; filament end g-code Orca
-M106 P3 S0
 ```
