@@ -2,7 +2,7 @@
 
 # end
 
-# printing_by_object
+# by object
 
 time_lapse_gcode
 
