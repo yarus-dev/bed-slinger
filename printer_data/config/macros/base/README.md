@@ -61,7 +61,7 @@ PAUSE
 ; Custom g-code template Orca
 ```
 
-## Filament start (PLA)
+## Filament start
 ```
 ; filament start gcode g-code Orca
 ```
