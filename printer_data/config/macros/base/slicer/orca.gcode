@@ -13,3 +13,5 @@ change_extrusion_role_gcode
 change_filament_gcode
 
 layer_change_gcode
+
+machine_end_gcode
