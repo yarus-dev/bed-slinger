@@ -7,7 +7,7 @@
 # layer_change
 # time_lapse
 # change_filament
-# change_extrusion_role
+# change_extrusion role
 # pause
 # template
 
