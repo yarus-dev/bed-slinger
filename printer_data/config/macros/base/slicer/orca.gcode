@@ -13,9 +13,7 @@
 
 
 # layer change
-; layer changed g-code Orca
-; layer {layer_num+1} from [total_layer_count]
-_LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_z]
+
 
 # timelapse
 ; Timelapse take frame g-code Orca
