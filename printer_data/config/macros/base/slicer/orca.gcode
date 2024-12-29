@@ -48,11 +48,6 @@ PAUSE
     {endif}
 {endif}
 
-
-{if support_air_filtration && activate_air_filtration[current_extruder]}
-    M106 P3 S{during_print_exhaust_fan_speed_num[current_extruder]}
-{endif}
-
 # filament end gcode 
 ; Filament end Orca
 M106 P3 S0
