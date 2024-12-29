@@ -28,7 +28,7 @@
 PAUSE
 
 # template
-; Orca custom g-code
+
 
 
 # filament start gcode
