@@ -14,7 +14,7 @@ _PRINT_OBJECT
 
 # before layer change
 ; Printing by object Orca
-_PRINT_OBJECT
+_BEFORE_
 
 # layer change
 
