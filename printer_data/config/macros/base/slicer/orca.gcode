@@ -21,7 +21,7 @@ _BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_co
 _LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
 
 # timelapse
-; layer change Orca
+; timelapse take frame Orca
 _SMILE
 
 # change filament
