@@ -13,8 +13,9 @@ _PRINT_END
 _PRINT_OBJECT
 
 # before layer change
-; before layer change Orca
-_BEFORE_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
+; Before layer change g-code Orca
+; layer {layer_num+1} from [total_layer_count]
+BEFORE_LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_z]
 
 # layer change
 ; layer change Orca
