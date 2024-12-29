@@ -26,4 +26,3 @@ machine_start_gcode
 
 template_custom_gcode
 
-time_lapse_gcode
