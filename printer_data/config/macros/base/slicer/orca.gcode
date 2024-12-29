@@ -19,7 +19,7 @@ machine_pause_gcode
 
 machine_start_gcode
 
-printing_by_object_gcode
+
 
 template_custom_gcode
 
