@@ -18,7 +18,7 @@ _PRINT_END
 ## Print by object
 ```
 ; Print by object g-code Orca
-_PRINT_OBJECT
+_PRINT_BY_OBJECT
 ```
 ## Before layer change
 ```
