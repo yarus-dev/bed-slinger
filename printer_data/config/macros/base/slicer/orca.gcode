@@ -19,7 +19,7 @@ _BEFORE_LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_
 
 # layer change
 ; layer change Orca
-_LAYER_CHANGE HEIGHT=[layer_z] LAYER={layer_num+1} LAYERS=[total_layer_count]
+_LAYER_CHANGE LAYER=[layer_num] LAYERS=[total_layer_count] HEIGHT=[layer_z]
 
 # timelapse
 ; timelapse take frame Orca
