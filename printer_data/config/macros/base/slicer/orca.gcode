@@ -19,8 +19,6 @@
 
 
 # change filament
-; change filament Orca
-FILAMENT_CHANGE
 
 # change extrusion role
 ; change extrusion role Orca
