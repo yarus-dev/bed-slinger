@@ -1,0 +1,429 @@
+
+# - Micro-controller architecture: STMicroelectronics STM32
+# - Processor model: STM32F103
+# - Bootloader offset: 28KiB
+# - Communication interface: Serial (on USART2 PA2/PA3)
+# GD32F303RET6 OSC:8MHz(STM32F103) 28KiB bootloader
+# STEP DRIVER MS35774(clon tmc2209?) 1/16 STEP
+# HEIGHT HX711
+# Printer_size: 220x220x250
+# mcu: chip: GD32F303RET6
+# version: CR4NS200323C10
+
+# Motherboard creality
+# -------------------------------------------------------- #
+
+[mcu]
+serial: /dev/ttyS5                                          ; Serial (on USART2 PA2/PA3)
+baud: 250000
+restart_method: command
+
+[temperature_sensor сreality]
+sensor_type: temperature_mcu
+min_temp:  0.0
+max_temp: 99.0
+
+# Orange Pi Zero 3
+# -------------------------------------------------------- #
+[mcu host]
+serial: /tmp/klipper_host_mcu
+
+[temperature_sensor host]
+sensor_type: temperature_host
+min_temp:  0.0
+max_temp: 99.0
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm4
+pwm: True
+hardware_pwm: True
+value: 0
+cycle_time: 0.001                                           ; Default beeper tone in kHz. 1 / 0.001 = 1000Hz (1kHz)
+
+# kinematics
+# -------------------------------------------------------- #
+
+[printer]
+kinematics: cartesian
+max_velocity:    800
+max_accel:      8000
+max_z_velocity:   32
+max_z_accel:     320
+square_corner_velocity: 12.0
+minimum_cruise_ratio:   0.5
+
+[stepper_x]
+step_pin:      PC2
+dir_pin:      !PB9
+enable_pin:   !PC3
+endstop_pin: ~!PA5
+
+rotation_distance: 40
+full_steps_per_rotation: 200
+microsteps: 32
+
+position_min:     -15
+position_endstop: -15
+position_max:     222 # 237 from endstop
+
+homing_speed: 120
+# second_homing_speed: 40.
+homing_retract_dist: 0
+
+[tmc2208 stepper_x]
+uart_pin: PB12
+#diag_pin: ^PB10
+sense_resistor: 0.150
+interpolate: False
+stealthchop_threshold: 0
+run_current:    0.750
+hold_current:   0.300
+
+[endstop_phase stepper_x]
+endstop_align_zero: True
+
+[stepper_y]
+step_pin:      PB8
+dir_pin:       PB7
+enable_pin:   !PC3
+endstop_pin: ~!PA6
+
+rotation_distance: 40
+full_steps_per_rotation: 200
+microsteps: 32
+
+position_min:     -15
+position_endstop: -15
+position_max:     226 # 241 from endstop
+homing_speed: 120
+# second_homing_speed: 40.
+homing_retract_dist: 0
+
+[tmc2208 stepper_y]
+uart_pin: PB13
+#diag_pin: ^PB10
+sense_resistor: 0.150
+stealthchop_threshold: 0
+interpolate: False
+run_current:  0.750
+hold_current: 0.300
+
+[endstop_phase stepper_y]
+endstop_align_zero: True
+
+[stepper_z]
+step_pin:     PB6
+dir_pin:     !PB5
+enable_pin:  !PC3
+endstop_pin: probe:z_virtual_endstop
+
+rotation_distance: 8
+full_steps_per_rotation: 200
+microsteps: 32
+
+position_min: -3
+position_max: 250
+
+homing_speed: 16
+# second_homing_speed: 8.
+homing_retract_dist: 0
+
+[tmc2208 stepper_z]
+uart_pin: PB14
+#diag_pin: ^PB10
+sense_resistor: 0.150
+stealthchop_threshold: 0
+interpolate: False
+run_current:    0.800
+hold_current:   0.300
+
+[endstop_phase stepper_z]
+endstop_align_zero: True
+
+# <---------------------- Common extruder support ---------------------->
+# чорний чероний помаранчевий синий 
+
+[extruder]
+step_pin:    PB4
+dir_pin:     PB3
+enable_pin: !PC3
+
+nozzle_diameter:   0.400
+filament_diameter: 1.750
+
+microsteps: 16
+full_steps_per_rotation: 200
+gear_ratio: 7:2 # 3.5:1
+rotation_distance: 28.518 # 114.072 with 64 microsteps
+
+max_extrude_only_distance: 114.072 # rotation_distance *2
+# max_extrude_cross_section: 0.64 # (((nozzle*2)**2)*pi)
+# max_extrude_only_velocity: 120 #  1000 / 4.112
+# max_extrude_only_accel:   120000 # 10000 / 3.125
+# instantaneous_corner_velocity: 12 # 7.53 / 2
+
+pressure_advance: 0.036
+pressure_advance_smooth_time: 0.040
+
+heater_pin: PA1
+sensor_pin: PC5
+sensor_type: Generic 3950
+max_power: 1.0
+smooth_time: 1.0
+# pwm_cycle_time: 0.100
+pullup_resistor: 4700
+min_temp:  0.0
+min_extrude_temp: 180
+max_temp: 350
+# control: pid
+# pid_kp: 37.605
+# pid_ki: 6.115
+# pid_kd: 57.818
+
+[firmware_retraction]
+retract_length:  0.8
+retract_speed:   40
+unretract_speed: 30
+
+# [verify_heater extruder]
+# max_error: 600
+# check_gain_time: 120 
+# heating_gain: 1.0
+# hysteresis: 7
+
+# [tmc2208 extruder]
+# uart_pin: ^PB15
+# run_current: 0.55
+
+# [autotune_tmc extruder]
+# motor: BJ42D09-20V02
+
+[heater_fan hotend_fan]
+pin: PA0
+heater: extruder
+hardware_pwm: false
+heater_temp: 66.6
+fan_speed: 1.0
+max_power: 1.0
+off_below: 0.0
+shutdown_speed: 0.0
+kick_start_time: 0.100
+cycle_time:      0.010
+
+[fan]
+pin: PC1
+# max_power: 1.0
+kick_start_time: 0.500
+cycle_time:      0.010
+hardware_pwm: false
+
+# <---------------------- Bed support ---------------------->
+[heater_bed]
+heater_pin: PB2
+sensor_pin: PC4
+sensor_type:  EPCOS 100K B57560G104F 
+# pullup_resistor: 4700
+max_power:      1.0
+# smooth_time:    1.
+# pwm_cycle_time:  .1
+# pwm_cycle_time: 0.02
+min_temp:  0.0
+max_temp: 120
+# control: pid
+# pid_kp: 64.721
+# pid_ki: 0.687
+# pid_kd: 1524.178
+
+[verify_heater heater_bed]
+max_error: 120
+check_gain_time: 60
+hysteresis: 10
+heating_gain: 2
+
+# <---------------------- Bed level ---------------------->
+[bed_mesh]
+speed: 220
+horizontal_move_z: 4 #   The height (in mm) that the head should be commanded to move to just prior to starting a probe operation. The default is 5.
+
+mesh_min: 0, 15
+mesh_max: 215, 220
+
+probe_count: 7, 7
+
+fade_start:  0.1
+fade_end:    8.0
+fade_target: 0.0
+# split_delta_z: .025
+# move_check_distance: 50.0
+
+mesh_pps: 2, 2
+algorithm: bicubic
+bicubic_tension: .1
+
+# zero_reference_position: 29.5, 60.5
+# adaptive_margin: 2.0
+
+# scan_overshoot: 4
+
+[screws_tilt_adjust]
+speed: 220
+horizontal_move_z: 8
+screw_thread: CCW-M4
+screw1_name: front left
+screw1:  35.5,	4.5         
+screw2_name: front right
+screw2: 210.5, 4.5
+screw3_name: rear  right
+screw3: 210.5, 179.5
+screw4_name: rear  left
+screw4:  35.5, 179.5
+
+[skew_correction]
+
+# [axis_twist_compensation]
+# speed: 220
+# horizontal_move_z: 5
+# calibrate_start_x: 0
+# calibrate_end_x: 190
+# calibrate_y: 110
+
+[include probing/bltouch.cfg]
+# [include probing/eddy.cfg]
+[include probing/prtouch.cfg]
+# [include probing/load_cell.cfg]
+
+# <---------------------- Resonance compensation ---------------------->
+[input_shaper]
+# shaper_freq_x: 48.0
+# shaper_type_x: mzv
+damping_ratio_x: 0.1
+# shaper_freq_y: 40.0
+# shaper_type_y: mzv
+damping_ratio_y: 0.1
+
+# [include probing/resonance_tester.cfg]
+
+# Filament sensors
+#----------------------------------------------------------#
+
+[filament_switch_sensor filament_sensor]
+switch_pin: !PC15
+pause_on_runout: true
+insert_gcode:
+    M117 Insert Detected
+runout_gcode:
+    M117 Runout Detected
+# Customized homing
+#----------------------------------------------------------#
+
+[safe_z_home]
+home_xy_position: 35.5,	4.5
+speed: 220
+z_hop: 8
+z_hop_speed: 24
+
+# G-Code macros and events
+#----------------------------------------------------------#
+[save_variables]
+filename:  ~/printer_data/config/variables.cfg
+
+[virtual_sdcard]
+path: ~/printer_data/gcodes
+on_error_gcode:
+    {% if "xyz" in printer.toolhead.homed_axes %}
+        PARK
+    {% endif %}
+
+[sdcard_loop]
+
+[force_move]
+enable_force_move: True
+
+[pause_resume]
+recover_velocity: 120.
+
+[gcode_arcs]
+resolution: 0.1
+
+[display_status]
+
+[respond]
+#default_type: echo
+#default_prefix: echo:
+
+[exclude_object]
+
+[include mainsail.cfg]
+
+[include macros/base/*.cfg]
+[include macros/calibration/*.cfg]
+[include macros/compatibility/*.cfg]
+
+[include macros/helpers/*.cfg]
+
+[include macros/miscs/aliases.cfg]
+[include macros/miscs/debugging.cfg]
+[include macros/miscs/startup.cfg]
+[include macros/miscs/power.cfg]
+[include macros/miscs/timeout.cfg]
+
+[include macros/services/spoolman.cfg]
+
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+#*#
+#*# [extruder]
+#*# control = pid
+#*# pid_kp = 40.129
+#*# pid_ki = 17.835
+#*# pid_kd = 22.573
+#*#
+#*# [heater_bed]
+#*# control = pid
+#*# pid_kp = 67.111
+#*# pid_ki = 1.099
+#*# pid_kd = 1024.278
+#*#
+#*# [bed_mesh default]
+#*# version = 1
+#*# points =
+#*# 	-0.030836, -0.026670, 0.017497, 0.042497, 0.050830, 0.055414, 0.101664
+#*# 	-0.039170, -0.035420, 0.018747, 0.026247, 0.025830, 0.052497, 0.074997
+#*# 	0.006664, 0.009580, 0.043330, 0.047080, 0.052080, 0.044997, 0.059580
+#*# 	-0.005420, 0.015414, 0.049580, 0.055414, 0.024580, 0.024997, 0.016247
+#*# 	0.038330, 0.045830, 0.069164, 0.048330, 0.035830, 0.007497, -0.009586
+#*# 	0.083747, 0.082497, 0.073330, 0.048330, 0.025830, -0.009586, -0.035836
+#*# 	0.129580, 0.079580, 0.067497, 0.033747, 0.004580, -0.037086, -0.061670
+#*# x_count = 7
+#*# y_count = 7
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.1
+#*# min_x = 0.0
+#*# max_x = 195.95999999999998
+#*# min_y = 0.0
+#*# max_y = 195.95999999999998
+#*#
+#*# [bltouch]
+#*# z_offset = 0.167
+#*#
+#*# [input_shaper]
+#*# shaper_type_x = mzv
+#*# shaper_freq_x = 52.0
+#*# shaper_type_y = mzv
+#*# shaper_freq_y = 37.6
+#*#
+#*# [skew_correction default]
+#*# xy_skew = 0.001205672108861778
+#*# xz_skew = 0.0
+#*# yz_skew = 0.0
+#*#
+#*# [endstop_phase stepper_x]
+#*# trigger_phase = 10/128
+#*#
+#*# [endstop_phase stepper_y]
+#*# trigger_phase = 35/128
+#*#
+#*# [endstop_phase stepper_z]
+#*# trigger_phase = 79/128
